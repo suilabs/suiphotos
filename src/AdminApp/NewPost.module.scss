@@ -1,0 +1,32 @@
+@import "../base";
+
+.NewPost {
+  &__wrapper {
+    padding: 1rem;
+  }
+  
+  &__comment {
+    margin-top: 1rem;
+  }
+  
+  &__commentInput {
+    border: none;
+    border-bottom: 1px solid $gray-color;
+    width: 100%;
+    padding: 1rem 0;
+    
+    &:focus-visible {
+      outline: none;
+      border-color: $primary-color;
+    }
+  }
+  
+  &__postButton {
+    @include primary-button
+  }
+  
+  &__actionsWrapper {
+    text-align: right;
+    margin-top: 1rem;
+  }
+}

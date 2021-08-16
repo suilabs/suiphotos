@@ -1,0 +1,34 @@
+@import "../base";
+
+.ImagePreview {
+  &__item {
+    width: 280px;
+    height: auto;
+  }
+  
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  
+  &__image {
+    width: 280px;
+    height: auto;
+  }
+  
+  &__btnWrapper {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    
+    button {
+      height: 50px;
+      @include button;
+    }
+  }
+  
+  &__btnRemove {
+    @include destructive-button;
+  }
+}

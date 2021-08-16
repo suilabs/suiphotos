@@ -1,0 +1,66 @@
+$destructive-color: #BC4943;
+$primary-color: #50B27A;
+$secondary-color: #409abe;
+$white-color: #FDFCFA;
+$gray-color: #778899;
+
+@mixin button {
+  border-color: $primary-color;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0.5rem;
+  background-color: $white-color;
+  transition: filter .3s ease-in-out, color 0.1s linear, background-color 0.3s linear;
+  min-width: 100px;
+
+  &:hover {
+    filter: brightness(95%);
+  }
+}
+
+@mixin primary-button {
+  @include button;
+  border-color: $primary-color;
+  color: $primary-color;
+  
+  &:hover {
+    background-color: $primary-color;
+    color: $white-color;
+  }
+}
+
+@mixin seconday-button {
+  @include button;
+  color: $secondary-color;
+  background-color: $secondary-color;
+}
+
+@mixin destructive-button {
+  @include button;
+  color: $destructive-color;
+  border-color: $destructive-color;
+  
+  &:hover {
+    background-color: $destructive-color;
+    color: $white-color;
+  }
+}
+
+@mixin card-panel {
+  border: 1px solid $gray-color;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1rem $gray-color;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+$screen-sm: 360px;
+$screen-md: 480px;
+$screen-lg: 720px;
+
+@mixin mobile {
+  @media (max-width: #{$screen-md - 1px}) {
+    @content;
+  }
+}

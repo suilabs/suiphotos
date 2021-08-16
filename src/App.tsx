@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import MainApp from './MainApp'
+import AdminApp from './AdminApp'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function Navigation() {
+    return (
+        <nav>
+            <ul>
+                <li>
+                    <Link to="/">
+                        <h1>SUIpics</h1>
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/admin">
+                        Login
+                    </Link>
+                </li>
+            </ul>
+        </nav>
+    )
 }
 
-export default App;
+function App() {
+    return (
+        <Router>
+            <Navigation/>
+            <Switch>
+                <Route exact path="/">
+                    <MainApp/>
+                </Route>
+                <Route exact path="/admin">
+                    <AdminApp/>
+                </Route>
+            </Switch>
+        </Router>
+    )
+}
+
+export default App

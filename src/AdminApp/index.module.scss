@@ -1,0 +1,18 @@
+@import '../base';
+
+.Admin {
+  &__panel {
+    @include card-panel;
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    @include mobile {
+      width: 100%;
+      left: 0;
+      position: relative;
+      transform: none;
+    }
+  }
+}
