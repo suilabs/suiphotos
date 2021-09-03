@@ -1,8 +1,9 @@
 import React from 'react'
 import ImageUploading from 'react-images-uploading'
 import { ImageListType } from 'react-images-uploading/dist/typings'
-import { Button, TextInput } from 'carbon-components-react'
 
+import { TextInput } from '../Components/Form/TextInput'
+import { Button } from '../Components/Button'
 
 import { useApi } from '../Hooks/useApi'
 
@@ -10,8 +11,6 @@ import Loading from '../Components/Loading'
 import ImageUploaderElement from './ImageUploaderElement'
 import ImagePreview from './ImagePreview'
 
-import 'carbon-components/scss/components/button/_button.scss'
-import 'carbon-components/scss/components/text-input/_text-input.scss'
 import STYLE from './NewPost.module.scss'
 
 export function NewPost() {

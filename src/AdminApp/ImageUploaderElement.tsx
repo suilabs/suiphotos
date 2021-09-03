@@ -1,8 +1,9 @@
 import React from 'react'
 import STYLE from './ImageUploaderElement.module.scss'
-import { Button, FormLabel } from 'carbon-components-react'
 
-import 'carbon-components/scss/components/button/_button.scss'
+import { Button } from '../Components/Button'
+import { FormLabel } from '../Components/Form/Label'
+
 interface ImageUploaderElementProps {
     onUpload: () => void
     onRemove: () => void

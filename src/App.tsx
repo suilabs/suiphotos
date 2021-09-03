@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import MainApp from './MainApp'
 import AdminApp from './AdminApp'
 import Navigation from './Components/Navigation'
@@ -12,7 +12,7 @@ function App() {
                 <Route exact path="/">
                     <MainApp/>
                 </Route>
-                <Route exact path="/admin">
+                <Route path="/admin">
                     <AdminApp/>
                 </Route>
             </Switch>
