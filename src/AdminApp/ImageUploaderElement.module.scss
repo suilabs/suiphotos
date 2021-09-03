@@ -18,18 +18,4 @@
     justify-content: space-between;
     margin: 1rem 0;
   }
-  
-  &__uploadButton {
-    @include primary-button;
-    
-    padding: 0 .5rem;
-    min-height: 50px;
-  }
-  
-  &__removeButton {
-    @include destructive-button;
-
-    padding: 0 .5rem;
-    min-height: 50px;
-  }
 }

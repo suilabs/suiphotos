@@ -1,7 +1,9 @@
 import React from 'react'
 import { ImageType } from 'react-images-uploading'
 import { ImageListType } from 'react-images-uploading/dist/typings'
+import { Button } from 'carbon-components-react'
 
+import 'carbon-components/scss/components/button/_button.scss'
 import STYLE from './ImagePreview.module.scss'
 
 interface ImagePreviewProps {
@@ -18,8 +20,8 @@ export default function ImagePreview ({imageList, onImageUpdate, onImageRemove}:
                     <div key={image.file?.name} className={STYLE.ImagePreview__item}>
                         <img className={STYLE.ImagePreview__image} src={image.data_url} alt={`preview_${index}`}/>
                         <div className={STYLE.ImagePreview__btnWrapper}>
-                            <button onClick={() => onImageUpdate(index)}>Update</button>
-                            <button className={STYLE.ImagePreview__btnRemove} onClick={() => onImageRemove(index)}>Remove</button>
+                            <Button kind="tertiary" onClick={() => onImageUpdate(index)}>Update</Button>
+                            <Button kind="danger--tertiary" onClick={() => onImageRemove(index)}>Remove</Button>
                         </div>
                     </div>
                 ))}

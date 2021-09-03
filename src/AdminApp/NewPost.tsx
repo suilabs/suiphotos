@@ -1,6 +1,8 @@
 import React from 'react'
 import ImageUploading from 'react-images-uploading'
 import { ImageListType } from 'react-images-uploading/dist/typings'
+import { Button, TextInput } from 'carbon-components-react'
+
 
 import { useApi } from '../Hooks/useApi'
 
@@ -8,6 +10,8 @@ import Loading from '../Components/Loading'
 import ImageUploaderElement from './ImageUploaderElement'
 import ImagePreview from './ImagePreview'
 
+import 'carbon-components/scss/components/button/_button.scss'
+import 'carbon-components/scss/components/text-input/_text-input.scss'
 import STYLE from './NewPost.module.scss'
 
 export function NewPost() {
@@ -63,12 +67,10 @@ export function NewPost() {
             </ImageUploading>
 
             <div className={STYLE.NewPost__comment}>
-                <input className={STYLE.NewPost__commentInput} value={comment} placeholder='Add your comment here' onChange={({target: { value }}) => setComment(value)}/>
+                <TextInput  id="comment" value={comment} placeholder='Add your comment here' onChange={({target: { value }}) => setComment(value)} labelText="Comment"/>
             </div>    
             <div className={STYLE.NewPost__actionsWrapper}>
-                <button className={STYLE.NewPost__postButton} onClick={onSubmit}>
-                    Post
-                </button>
+                <Button onClick={onSubmit}>Post</Button>
             </div>
         </div>
     )

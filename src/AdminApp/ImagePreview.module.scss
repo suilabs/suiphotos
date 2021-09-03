@@ -21,14 +21,5 @@
     height: 50px;
     display: flex;
     justify-content: space-between;
-    
-    button {
-      height: 50px;
-      @include button;
-    }
-  }
-  
-  &__btnRemove {
-    @include destructive-button;
   }
 }

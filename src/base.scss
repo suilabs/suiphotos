@@ -19,34 +19,6 @@ $gray-color: #778899;
   }
 }
 
-@mixin primary-button {
-  @include button;
-  border-color: $primary-color;
-  color: $primary-color;
-  
-  &:hover {
-    background-color: $primary-color;
-    color: $white-color;
-  }
-}
-
-@mixin seconday-button {
-  @include button;
-  color: $secondary-color;
-  background-color: $secondary-color;
-}
-
-@mixin destructive-button {
-  @include button;
-  color: $destructive-color;
-  border-color: $destructive-color;
-  
-  &:hover {
-    background-color: $destructive-color;
-    color: $white-color;
-  }
-}
-
 @mixin card-panel {
   border: 1px solid $gray-color;
   border-radius: 0.5rem;

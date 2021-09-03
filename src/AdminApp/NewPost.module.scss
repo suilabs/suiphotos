@@ -21,10 +21,6 @@
     }
   }
   
-  &__postButton {
-    @include primary-button
-  }
-  
   &__actionsWrapper {
     text-align: right;
     margin-top: 1rem;
