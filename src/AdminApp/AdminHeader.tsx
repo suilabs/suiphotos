@@ -30,10 +30,10 @@ const AdminHeader = () => {
             <Header aria-label="Sui Photos Header">
                 <HeaderName prefix="SUI">Photos</HeaderName>
                 <HeaderNavigation aria-label="Navigation">
-                    <HeaderMenuItem to={`post`} isCurrentPage={paths[location.pathname] === 'post'}>
+                    <HeaderMenuItem to={`/admin/post`} isCurrentPage={paths[location.pathname] === 'post'}>
                         New Post
                     </HeaderMenuItem>
-                    <HeaderMenuItem to={`edit`} isCurrentPage={paths[location.pathname] === 'edit'}>
+                    <HeaderMenuItem to={`/admin/edit`} isCurrentPage={paths[location.pathname] === 'edit'}>
                         Edit Gallery
                     </HeaderMenuItem>
                 </HeaderNavigation>

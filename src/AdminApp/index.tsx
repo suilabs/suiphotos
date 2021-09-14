@@ -10,15 +10,16 @@ import { Route, Switch, useRouteMatch } from 'react-router-dom'
 function AdminApp() {
     let { path } = useRouteMatch();
 
+    console.log(`${path}/post`)
     return (
         <>
             <AdminHeader/>
             <Tile className={STYLE.Admin__panel}>
                 <Switch>
-                    <Route exact path={`${path}/post`}>
+                    <Route exact path={`/admin/post`}>
                         <NewPost/>
                     </Route>
-                    <Route exact path={`${path}/edit`}>
+                    <Route exact path={`/admin/edit`}>
                         EDIT
                     </Route>
                 </Switch>
