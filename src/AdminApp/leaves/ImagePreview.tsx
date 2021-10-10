@@ -1,7 +1,7 @@
 import React from 'react'
 import { ImageType } from 'react-images-uploading'
 import { ImageListType } from 'react-images-uploading/dist/typings'
-import { Button } from '../Components/Button'
+import { Button } from '../../Components/Button'
 
 import STYLE from './ImagePreview.module.scss'
 

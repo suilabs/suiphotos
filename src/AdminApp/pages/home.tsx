@@ -1,10 +1,10 @@
 import React from 'react'
-import { NewPost } from './NewPost'
+import NewPostContainer from '../containers/NewPost'
 
-import { Tile } from '../Components/Tile'
+import { Tile } from '../../Components/Tile'
 
-import STYLE from './index.module.scss'
-import AdminHeader from './AdminHeader'
+import STYLE from './home.module.scss'
+import HeaderContainer from '../containers/HeaderContainer'
 import { Route, Switch, useRouteMatch } from 'react-router-dom'
 
 function AdminApp() {
@@ -13,11 +13,11 @@ function AdminApp() {
     console.log(`${path}/post`)
     return (
         <>
-            <AdminHeader/>
+            <HeaderContainer/>
             <Tile className={STYLE.Admin__panel}>
                 <Switch>
-                    <Route exact path={`/admin/post`}>
-                        <NewPost/>
+                    <Route exact path={['/admin', `/admin/post`]}>
+                        <NewPostContainer/>
                     </Route>
                     <Route exact path={`/admin/edit`}>
                         EDIT

@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import MainApp from './MainApp'
-import AdminApp from './AdminApp'
+import AdminApp from './AdminApp/pages/home'
 import Navigation from './Components/Navigation'
 
 function App() {

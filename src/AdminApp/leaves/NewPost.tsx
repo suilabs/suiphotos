@@ -2,41 +2,28 @@ import React from 'react'
 import ImageUploading from 'react-images-uploading'
 import { ImageListType } from 'react-images-uploading/dist/typings'
 
-import { TextInput } from '../Components/Form/TextInput'
-import { Button } from '../Components/Button'
+import { TextInput } from '../../Components/Form/TextInput'
+import { Button } from '../../Components/Button'
 
-import { useApi } from '../Hooks/useApi'
+import { useApi } from '../../Hooks/useApi'
 
-import Loading from '../Components/Loading'
+import Loading from '../../Components/Loading'
 import ImageUploaderElement from './ImageUploaderElement'
 import ImagePreview from './ImagePreview'
 
 import STYLE from './NewPost.module.scss'
 
-export function NewPost() {
-    const [images, setImages] = React.useState<ImageListType>([])
-    const [comment, setComment] = React.useState<string>('')
-    const [loading, setLoading] = React.useState<boolean>(false)
-    const api = useApi()
-    const maxNumber = 69
+interface Props {
+    loading: boolean
+    images: ImageListType
+    onFileChange: (imageList: ImageListType, addUpdateIndex?: Array<number>) => void
+    onSubmit: () => void
+    onCommentChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+}
 
-    const onFileChange = (imageList: ImageListType, addUpdateIndex?: Array<number>) => {
-        // data to submit
-        console.log(imageList, addUpdateIndex)
-        setImages(imageList)
-    }
-    
-    const onSubmit = async () => {
-        if (images.length > 0) {
-            await setLoading(true)
-            await api.createNewPost({
-                files: images.map(({file}) => file),
-                comment
-            })
-            await setLoading(false)
-        }
-    }
+const MAX_IMAGES = 10
 
+const NewPost: React.FC<Props> = ({ loading, images, onSubmit, onFileChange, onCommentChange}) => {
     if (loading) {
         return <Loading />
     }
@@ -47,7 +34,7 @@ export function NewPost() {
                 multiple
                 value={images}
                 onChange={onFileChange}
-                maxNumber={maxNumber}
+                maxNumber={MAX_IMAGES}
                 dataURLKey="data_url"
             >
                 {({
@@ -66,7 +53,7 @@ export function NewPost() {
             </ImageUploading>
 
             <div className={STYLE.NewPost__comment}>
-                <TextInput  id="comment" value={comment} placeholder='Add your comment here' onChange={({target: { value }}) => setComment(value)} labelText="Comment"/>
+                <TextInput  id="comment" placeholder='Add your comment here' onChange={onCommentChange} labelText="Comment"/>
             </div>    
             <div className={STYLE.NewPost__actionsWrapper}>
                 <Button onClick={onSubmit}>Post</Button>
@@ -74,3 +61,5 @@ export function NewPost() {
         </div>
     )
 }
+
+export default NewPost

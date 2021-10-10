@@ -1,8 +1,8 @@
 import React from 'react'
 import STYLE from './ImageUploaderElement.module.scss'
 
-import { Button } from '../Components/Button'
-import { FormLabel } from '../Components/Form/Label'
+import { Button } from '../../Components/Button'
+import { FormLabel } from '../../Components/Form/Label'
 
 interface ImageUploaderElementProps {
     onUpload: () => void

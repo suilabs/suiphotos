@@ -29,12 +29,10 @@ export const HeaderMenuItem: React.FC<MyProps & HeaderMenuItemProps> = React.for
     if (props.href) {
         element = 'a'
     }
-    console.log(props)
+    
     return (
         // @ts-ignore
-        <div>
-            <Link to={props.to!}>{props.children}</Link>
-        </div>
+        <CarbonHeaderMenuItem {...props} element={element} ref={ref} >{props.children}</CarbonHeaderMenuItem>
     );
 });
 

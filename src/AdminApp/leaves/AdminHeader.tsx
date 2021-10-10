@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import React from 'react'
 
 // @ts-ignore
 import { AppSwitcher20 } from '@carbon/icons-react'
@@ -12,28 +11,25 @@ import {
     HeaderName,
     HeaderNavigation,
     HeaderPanel
-} from '../Components/Header'
-import { Switcher, SwitcherItem } from '../Components/Switcher'
+} from '../../Components/Header'
+import { Switcher, SwitcherItem } from '../../Components/Switcher'
 
-const paths: Record<string, string> = {
-    '/': 'post',
-    '/post': 'post',
-    '/edit': 'edit',
+interface Props {
+    currentPage: string
+    onActionClick: () => void
+    panelExpanded: boolean
 }
 
-const AdminHeader = () => {
-    const [panelExpanded, setPanelExpanded] = useState(false)
-    let location = useLocation()
-
+const AdminHeader: React.FC<Props> = ({currentPage, onActionClick, panelExpanded}) => {
     return (
         <>
             <Header aria-label="Sui Photos Header">
                 <HeaderName prefix="SUI">Photos</HeaderName>
                 <HeaderNavigation aria-label="Navigation">
-                    <HeaderMenuItem to={`/admin/post`} isCurrentPage={paths[location.pathname] === 'post'}>
+                    <HeaderMenuItem to={`/admin/post`} isCurrentPage={currentPage === 'post'}>
                         New Post
                     </HeaderMenuItem>
-                    <HeaderMenuItem to={`/admin/edit`} isCurrentPage={paths[location.pathname] === 'edit'}>
+                    <HeaderMenuItem to={`/admin/edit`} isCurrentPage={currentPage === 'edit'}>
                         Edit Gallery
                     </HeaderMenuItem>
                 </HeaderNavigation>
@@ -41,7 +37,7 @@ const AdminHeader = () => {
                     <HeaderGlobalAction
                         aria-label="App Switcher"
                         tooltipAlignment="end"
-                        onClick={() => setPanelExpanded(!panelExpanded)}
+                        onClick={onActionClick}
                     >
                         <AppSwitcher20/>
                     </HeaderGlobalAction>
